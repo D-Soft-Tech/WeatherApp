@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/dimen_10dp"
+    android:background="@color/page_bg"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.DetailsScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen_20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/weather_summary_container_bg"
+            android:padding="@dimen/dimen_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sum_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/weather_summary_bg"
+                android:padding="@dimen/dimen_15dp"
+                android:text="@string/weather_nsummary"
+                android:textAlignment="center"
+                android:textColor="@color/main_color_variant_2"
+                android:textSize="@dimen/dimen_18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_25dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:lineSpacingExtra="1dp"
+                android:padding="0dp"
+                android:text="@string/city_name"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/dimen_20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/sum_tv"
+                app:layout_constraintTop_toTopOf="@+id/sum_tv" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:text="@string/dt_plc_holder"
+                app:layout_constraintBottom_toBottomOf="@+id/sum_tv"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_20dp"
+            android:text="@string/break_down"
+            style="@style/card_heading"
+            android:paddingVertical="@dimen/dimen_5dp"
+            android:background="@drawable/break_down_bg"
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main"
+                android:textColor="@color/white"
+                android:background="@drawable/details_card_bg"
+                style="@style/card_heading"
+                android:paddingVertical="@dimen/dimen_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20dp"
+                android:background="@drawable/details_card_content_bg"
+                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" >
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView8"
+                    app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/temp"
+                    app:layout_constraintStart_toStartOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <TextView
+                    android:id="@+id/mainTempHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mainTemp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintStart_toStartOf="@id/view"
+                    app:layout_constraintTop_toTopOf="@id/view" />
+
+                <TextView
+                    android:id="@+id/mainTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/mainTempHeading"
+                    app:layout_constraintTop_toTopOf="@+id/mainTempHeading" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/temp"
+                    app:layout_constraintStart_toStartOf="@+id/mainTempHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/mainTempHeading" />
+
+                <TextView
+                    android:id="@+id/maxTempHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maxTemp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintStart_toStartOf="@id/view5"
+                    app:layout_constraintTop_toTopOf="@id/view5" />
+
+                <TextView
+                    android:id="@+id/maxTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/maxTempHeading"
+                    app:layout_constraintTop_toTopOf="@+id/maxTempHeading" />
+
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/temp"
+                    app:layout_constraintStart_toStartOf="@+id/maxTempHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/maxTempHeading" />
+
+                <TextView
+                    android:id="@+id/pressureHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pressure"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintStart_toStartOf="@id/view4"
+                    app:layout_constraintTop_toTopOf="@id/view4" />
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/pressureHeading"
+                    app:layout_constraintTop_toTopOf="@+id/pressureHeading" />
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/temp"
+                    app:layout_constraintStart_toStartOf="@+id/pressureHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/pressureHeading" />
+
+                <TextView
+                    android:id="@+id/humidityHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humidity"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintStart_toStartOf="@id/view3"
+                    app:layout_constraintTop_toTopOf="@id/view3" />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/humidityHeading"
+                    app:layout_constraintTop_toTopOf="@+id/humidityHeading" />
+
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/temp"
+                    app:layout_constraintStart_toStartOf="@+id/humidityHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/humidityHeading" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Wind breakdown starts here -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/windSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:layout_constraintStart_toStartOf="@id/main_section"
+            app:layout_constraintTop_toBottomOf="@id/main_section">
+
+            <TextView
+                android:id="@+id/wind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/wind"
+                android:textColor="@color/white"
+                android:background="@drawable/details_card_bg"
+                style="@style/card_heading"
+                android:paddingVertical="@dimen/dimen_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20dp"
+                android:background="@drawable/details_card_content_bg"
+                app:layout_constraintEnd_toEndOf="@+id/wind"
+                app:layout_constraintStart_toStartOf="@+id/wind"
+                app:layout_constraintTop_toBottomOf="@+id/wind" >
+
+                <TextView
+                    android:id="@+id/speedheading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/speedheading"
+                    app:layout_constraintTop_toTopOf="@+id/speedheading" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/speed"
+                    app:layout_constraintStart_toStartOf="@+id/speedheading"
+                    app:layout_constraintTop_toBottomOf="@+id/speedheading" />
+
+                <TextView
+                    android:id="@+id/speedDirectionHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speedDirection"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:layout_constraintStart_toStartOf="@id/view10"
+                    app:layout_constraintTop_toTopOf="@id/view10" />
+
+                <TextView
+                    android:id="@+id/sped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/speedDirectionHeading"
+                    app:layout_constraintTop_toTopOf="@+id/speedDirectionHeading" />
+
+                <View
+                    android:id="@+id/view11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:background="@color/grey_color"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/sped"
+                    app:layout_constraintStart_toStartOf="@+id/speedDirectionHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/speedDirectionHeading" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- Wind breakdown starts here -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:layout_constraintStart_toStartOf="@id/windSection"
+            app:layout_constraintTop_toBottomOf="@id/windSection">
+
+            <TextView
+                android:id="@+id/visibilityMainHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/visibility"
+                android:textColor="@color/white"
+                android:background="@drawable/details_card_bg"
+                style="@style/card_heading"
+                android:paddingVertical="@dimen/dimen_5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/details_card_content_bg"
+                android:padding="@dimen/dimen_20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/visibilityMainHeading"
+                app:layout_constraintStart_toStartOf="@+id/visibilityMainHeading"
+                app:layout_constraintTop_toBottomOf="@+id/visibilityMainHeading">
+
+                <TextView
+                    android:id="@+id/visibilityHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lw_cs_vis"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/visibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/digit_place_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/visibilityHeading"
+                    app:layout_constraintTop_toTopOf="@+id/visibilityHeading" />
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@color/grey_color"
+                    app:layout_constraintEnd_toEndOf="@+id/visibility"
+                    app:layout_constraintStart_toStartOf="@+id/visibilityHeading"
+                    app:layout_constraintTop_toBottomOf="@+id/visibilityHeading" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

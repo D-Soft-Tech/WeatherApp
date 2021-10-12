@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EY</string>
+    <string name="city_name">New York</string>
+    <string name="country_name">United States</string>
+    <string name="weather_type">Cloudy Weather</string>
+    <string name="city_icon_descr">City Flag</string>
+    <string name="weather_nsummary">Weather \nSummary</string>
+    <string name="dt_plc_holder">Oct. 22, 2021</string>
+    <string name="break_down">Break Down</string>
+    <string name="main">Main</string>
+    <string name="temp">temp</string>
+    <string name="digit_place_holder">234</string>
+    <string name="mainTemp">main temp</string>
+    <string name="maxTemp">max temp</string>
+    <string name="pressure">pressure</string>
+    <string name="humidity">humidity</string>
+    <string name="wind">Wind</string>
+    <string name="speed">speed</string>
+    <string name="speedDirection">speed direction</string>
+    <string name="visibility">Visibility</string>
+    <string name="lw_cs_vis">visibility</string>
+</resources>
