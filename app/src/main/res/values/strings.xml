@@ -10,7 +10,7 @@
     <string name="main">Main</string>
     <string name="temp">temp</string>
     <string name="digit_place_holder">234</string>
-    <string name="mainTemp">main temp</string>
+    <string name="minTemp">min temp</string>
     <string name="maxTemp">max temp</string>
     <string name="pressure">pressure</string>
     <string name="humidity">humidity</string>
@@ -19,4 +19,8 @@
     <string name="speedDirection">speed direction</string>
     <string name="visibility">Visibility</string>
     <string name="lw_cs_vis">visibility</string>
+    <string name="search">Search</string>
+    <string name="sunrise">sun rise</string>
+    <string name="sun">Sun</string>
+    <string name="sunset">sun set</string>
 </resources>

@@ -22,6 +22,10 @@
         <action
             android:id="@+id/action_detailsScreen_to_listingsScreen"
             app:destination="@id/listingsScreen"
-            app:popUpTo="@id/listingsScreen" />
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="CurrentCityWeather"
+            app:argType="com.example.ey.model.FinalCityWeather" />
     </fragment>
 </navigation>

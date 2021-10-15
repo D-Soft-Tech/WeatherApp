@@ -1,8 +1,16 @@
 package com.example.ey.model
 
+import android.os.Build
+import android.os.Parcelable
+import android.text.Html
+import android.text.Spanned
+import android.widget.TextView
+import androidx.databinding.BindingAdapter
+import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.util.Date
 
+@Parcelize
 data class WeatherDomainModel(
     val cityName: String?,
     val countryAbr: String?,
@@ -15,10 +23,17 @@ data class WeatherDomainModel(
     val humidity: Int?,
     val windSpeed: Double?,
     val windSpeedDirection: Int?,
+    val sunrise: Int?,
+    val sunset: Int?,
     val visibility: Int?
-) {
+) : Parcelable {
     fun getDate() =
         dateCollected?.let {
-            SimpleDateFormat("yyyy.MM.dd").format(Date(it.toLong()))
+            SimpleDateFormat("MMM dd, yyyy.").format(Date(it.toLong()))
+        }
+
+    fun getTime(time: Int?) =
+        time?.let {
+            SimpleDateFormat("HH:mm:ss aa").format(Date(it.toLong()))
         }
 }

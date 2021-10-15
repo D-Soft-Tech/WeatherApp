@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="cityWeather"
             type="com.example.ey.model.FinalCityWeather" />
@@ -11,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_marginVertical="@dimen/dimen_5dp"
+        android:layout_marginVertical="@dimen/dimen_2dp"
         android:background="@drawable/recycler_view_item_view_bg"
         android:layout_height="wrap_content">
 
@@ -65,11 +66,12 @@
             android:id="@+id/view2"
             android:layout_width="100dp"
             android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             android:background="@color/grey_color"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             app:layout_constraintVertical_bias="0.050000012" />
 
@@ -79,8 +81,10 @@
             android:layout_height="wrap_content"
             android:text="@{cityWeather.dataFromMapperClass.summary}"
             android:textColor="@color/main_color_variant_2"
+            android:layout_marginTop="@dimen/dimen_5dp"
             android:textSize="@dimen/dimen_10sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 

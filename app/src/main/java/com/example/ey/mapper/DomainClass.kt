@@ -18,6 +18,8 @@ class DomainClass @Inject constructor() : NetworkResultMapper<CityWeather, Weath
             fromRemote.main!!.humidity,
             fromRemote.wind!!.speed,
             fromRemote.wind!!.deg,
+            fromRemote.sys!!.sunrise,
+            fromRemote.sys!!.sunset,
             fromRemote.visibility
         )
 }
