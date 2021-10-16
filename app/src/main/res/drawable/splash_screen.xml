@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/main_color" />
+    <item android:drawable="@drawable/ic_ey_text_name" android:gravity="center" />
+    <item android:drawable="@drawable/ic_weathers" android:gravity="bottom" android:top="@dimen/dimen_20dp" />
+
+</layer-list>

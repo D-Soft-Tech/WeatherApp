@@ -12,7 +12,8 @@
         tools:layout="@layout/listing_screen" >
         <action
             android:id="@+id/action_listingsScreen_to_detailsScreen"
-            app:destination="@id/detailsScreen" />
+            app:destination="@id/detailsScreen"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/detailsScreen"
@@ -22,6 +23,8 @@
         <action
             android:id="@+id/action_detailsScreen_to_listingsScreen"
             app:destination="@id/listingsScreen"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:launchSingleTop="false"
             app:popUpToInclusive="false" />
         <argument

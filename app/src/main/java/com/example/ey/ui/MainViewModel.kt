@@ -22,6 +22,10 @@ class MainViewModel @Inject constructor(
     private val _hasAllCitiesBeenLoaded: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
     val hasAllCitiesBeenLoaded get() = _hasAllCitiesBeenLoaded
 
+    init {
+        loadWeather()
+    }
+
     fun loadWeather() {
         val listOfIcons = CITY_ICONS
         val holder = mutableListOf<FinalCityWeather>()
@@ -38,11 +42,12 @@ class MainViewModel @Inject constructor(
                                 )
                             )
                         }
+                        else -> {} // Do nothing in the else part
                     }
                     _hasAllCitiesBeenLoaded.postValue(
                         holder.size == 16
                     )
-                    if (string == "westham") {
+                    if (holder.size == 16) {
                         _data.value = holder
                     }
                 }

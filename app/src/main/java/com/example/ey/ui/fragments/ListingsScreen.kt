@@ -43,25 +43,22 @@ class ListingsScreen : Fragment() {
         permanentList = arrayListOf()
         tempList = arrayListOf()
 
-        // Load data from the remote
-        viewModel.loadWeather()
-
         viewModel.hasAllCitiesBeenLoaded.observe(
             viewLifecycleOwner,
             { check ->
-                viewModel.getWeather().observe(
-                    viewLifecycleOwner,
-                    { cityWeathers ->
-                        if (check) {
-//                            tempList.clear()
-                            permanentList = cityWeathers
+                if (check) {
+                    viewModel.getWeather().observe(
+                        viewLifecycleOwner,
+                        { cityWeathers ->
+                            tempList.clear()
                             tempList.addAll(cityWeathers)
+                            permanentList = cityWeathers
                             recyclerViewAdapter.setCitiesWeathers(
                                 tempList
                             )
                         }
-                    }
-                )
+                    )
+                }
             }
         )
         setHasOptionsMenu(true)
@@ -102,5 +99,19 @@ class ListingsScreen : Fragment() {
                     return false
                 }
             })
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        recyclerViewAdapter.setCitiesWeathers(permanentList)
+//        viewModel.getWeather().observe(
+//            viewLifecycleOwner,
+//            { cityWeathers ->
+//                recyclerViewAdapter.setCitiesWeathers(
+//                    cityWeathers
+//                )
+//            }
+//        )
+        recyclerViewAdapter.setCitiesWeathers(permanentList)
     }
 }

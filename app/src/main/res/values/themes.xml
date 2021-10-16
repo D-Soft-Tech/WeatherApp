@@ -19,4 +19,9 @@
         <item name="android:textColor">@color/main_color_variant_2</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="splash_screen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:statusBarColor">@color/main_color_variant_2</item>
+    </style>
 </resources>
