@@ -14,12 +14,13 @@
         <entry key="app/src/main/res/drawable/ic_newyork.xml" value="0.296875" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/drawable/image_load_placeholder.xml" value="0.2962962962962963" />
+        <entry key="app/src/main/res/drawable/progress_bar_bg.xml" value="0.2601851851851852" />
         <entry key="app/src/main/res/drawable/recycler_view_item_view_bg.xml" value="0.30185185185185187" />
         <entry key="app/src/main/res/drawable/search_icon_bg.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.30185185185185187" />
         <entry key="app/src/main/res/drawable/splash_screen_2.xml" value="0.2962962962962963" />
         <entry key="app/src/main/res/drawable/weather_summary_bg.xml" value="0.2962962962962963" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/details_screen.xml" value="0.2395693135935397" />
         <entry key="app/src/main/res/layout/fragment_details_screen.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_listings__screen.xml" value="0.28072916666666664" />

@@ -23,4 +23,7 @@
     <string name="sunrise">sun rise</string>
     <string name="sun">Sun</string>
     <string name="sunset">sun set</string>
+    <string name="weather">Cities Weather</string>
+    <string name="cities_weather">Weather of Top Cities</string>
+    <string name="details">Details</string>
 </resources>

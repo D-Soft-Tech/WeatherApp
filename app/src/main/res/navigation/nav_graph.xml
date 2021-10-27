@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listingsScreen"
         android:name="com.example.ey.ui.fragments.ListingsScreen"
-        android:label="listing_screen"
+        android:label="@string/cities_weather"
         tools:layout="@layout/listing_screen" >
         <action
             android:id="@+id/action_listingsScreen_to_detailsScreen"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/detailsScreen"
         android:name="com.example.ey.ui.fragments.DetailsScreen"
-        android:label="details_screen"
+        android:label="@string/details"
         tools:layout="@layout/details_screen" >
         <action
             android:id="@+id/action_detailsScreen_to_listingsScreen"

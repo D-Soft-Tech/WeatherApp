@@ -5,7 +5,9 @@ import android.text.Html
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.SuperscriptSpan
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
@@ -50,4 +52,12 @@ fun getTempInCelsius(tv: TextView, value: Double?) {
     } else {
         tv.text = Html.fromHtml("$tempInCelsius <sup>o</sup>C")
     }
+}
+
+fun ProgressBar.show() {
+    this.visibility = View.VISIBLE
+}
+
+fun ProgressBar.hide() {
+    this.visibility = View.GONE
 }

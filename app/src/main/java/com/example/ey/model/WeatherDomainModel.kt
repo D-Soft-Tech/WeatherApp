@@ -1,11 +1,6 @@
 package com.example.ey.model
 
-import android.os.Build
 import android.os.Parcelable
-import android.text.Html
-import android.text.Spanned
-import android.widget.TextView
-import androidx.databinding.BindingAdapter
 import kotlinx.parcelize.Parcelize
 import java.text.SimpleDateFormat
 import java.util.Date

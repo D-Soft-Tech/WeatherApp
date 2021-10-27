@@ -16,10 +16,6 @@ class RecyclerViewDiffUtil(
             newList[newItemPosition].dataFromMapperClass.cityName
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
-        when {
-            oldList[oldItemPosition].cityIcon == newList[newItemPosition].cityIcon -> true
-            oldList[oldItemPosition].dataFromMapperClass.cityName ==
-                newList[newItemPosition].dataFromMapperClass.cityName -> true
-            else -> false
-        }
+        oldList[oldItemPosition].dataFromMapperClass.cityName ==
+            newList[newItemPosition].dataFromMapperClass.cityName
 }

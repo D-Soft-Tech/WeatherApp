@@ -1,11 +1,13 @@
 package com.example.ey.ui.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,6 +17,8 @@ import com.example.ey.databinding.ListingScreenBinding
 import com.example.ey.model.FinalCityWeather
 import com.example.ey.ui.MainViewModel
 import com.example.ey.ui.recyclerView.RecyclerViewAdapter
+import com.example.ey.ui.recyclerView.hide
+import com.example.ey.ui.recyclerView.show
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
@@ -28,6 +32,8 @@ class ListingsScreen : Fragment() {
 
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var binding: ListingScreenBinding
+    private lateinit var progressBar: ProgressBar
+    private lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +49,15 @@ class ListingsScreen : Fragment() {
         permanentList = arrayListOf()
         tempList = arrayListOf()
 
+        setHasOptionsMenu(true)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        progressBar = binding.progressBar // Initialize the progress bar
+        progressBar.show() // Show the progress bar
+
         viewModel.hasAllCitiesBeenLoaded.observe(
             viewLifecycleOwner,
             { check ->
@@ -53,6 +68,9 @@ class ListingsScreen : Fragment() {
                             tempList.clear()
                             tempList.addAll(cityWeathers)
                             permanentList = cityWeathers
+
+                            progressBar.hide() // Hide the progress bar
+
                             recyclerViewAdapter.setCitiesWeathers(
                                 tempList
                             )
@@ -61,11 +79,7 @@ class ListingsScreen : Fragment() {
                 }
             }
         )
-        setHasOptionsMenu(true)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             recyclerView.adapter = recyclerViewAdapter
@@ -79,18 +93,21 @@ class ListingsScreen : Fragment() {
                 SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?) = false
 
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onQueryTextChange(newText: String?): Boolean {
                     tempList.clear()
-                    val searchText = newText?.toLowerCase(Locale.getDefault())?.trim()
+                    val searchText = newText?.lowercase()?.trim()
                     searchText?.let { schTxt ->
+                        tempList.clear()
                         permanentList.forEach { weather ->
-                            if (weather.dataFromMapperClass.cityName!!.toLowerCase(Locale.getDefault())
+                            if (weather.dataFromMapperClass.cityName!!.lowercase()
                                 .contains(schTxt)
                             ) {
                                 tempList.add(weather)
                             }
                         }
                         recyclerViewAdapter.setCitiesWeathers(tempList)
+                        recyclerViewAdapter.notifyDataSetChanged()
                     } ?: run {
                         tempList.clear()
                         tempList.addAll(permanentList)
@@ -103,15 +120,6 @@ class ListingsScreen : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        recyclerViewAdapter.setCitiesWeathers(permanentList)
-//        viewModel.getWeather().observe(
-//            viewLifecycleOwner,
-//            { cityWeathers ->
-//                recyclerViewAdapter.setCitiesWeathers(
-//                    cityWeathers
-//                )
-//            }
-//        )
         recyclerViewAdapter.setCitiesWeathers(permanentList)
     }
 }

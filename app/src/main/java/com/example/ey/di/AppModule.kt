@@ -45,18 +45,4 @@ object AppModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
-//    @Provides
-//    fun provides(localDB: LocalDB): LocalDao {
-//        return localDB.getLocalDao()
-//    }
-
-//    @Provides
-//    @Singleton
-//    fun providesAppDb(@ApplicationContext appContext: Context): LocalDB =
-//        Room.databaseBuilder(
-//            appContext,
-//            LocalDB::class.java,
-//            "VpdMoney"
-//        ).build()
 }
