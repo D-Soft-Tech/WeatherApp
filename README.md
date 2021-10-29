@@ -60,7 +60,7 @@ viewModelScope.launch {
 
 - **Kotlin Flow:**
 This is one of kotlin features that enables developers to perform long running operations asynchronously and transactionally.
-In this project the result from the api in the networkcall was returned as a flow, this enables us to turn the api into an observable and get live update (if any) from it at any time. you can view the [api service here] (app/src/main/java/com/example/ey/api/ApiService.kt)
+In this project the result from the api in the networkcall was returned as a flow, this enables us to turn the api into an observable and get live update (if any) from it at any time. you can view the [api service here](app/src/main/java/com/example/ey/api/ApiService.kt)
 
 
 
