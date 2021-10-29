@@ -23,7 +23,7 @@ WeatherApp is an application that gets the weather forecast of some top cities. 
 The afforementioned technologies were implemented as follow:
 - Kotlin: 
 This project uses 100% Kotlin as the programming language. This is because Kotlin brings more features to the table. Features like extension functions, null safety and make things achievable with less verbose codes.
--Coroutines:
+- Coroutines:
 In this project Kotlin Coroutines was used to perform asynchronous operations like network call
 ```
 suspend fun getWeather(cityName: String): Flow<Resource<WeatherDomainModel>> = flow {
