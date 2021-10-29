@@ -111,7 +111,7 @@ object AppModule {
 ```
 
 - **DataBinding:** 
-The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/res/layout/listings_rv_item_view.xml).
+The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/main/res/layout/listings_rv_item_view.xml).
 
 
 
