@@ -26,20 +26,11 @@ This project uses 100% Kotlin as the programming language. This is because Kotli
 - **Coroutines:**
 In this project Kotlin Coroutines was used to perform asynchronous operations like network call
 ```
-suspend fun getWeather(cityName: String): Flow<Resource<WeatherDomainModel>> = flow {
-    emit(Resource.error("No Result Found", null))
-
-    try {
-
-        val weather =
-            apiService.getWeather(cityName, appid = "6e76055f1d172fe00a7aa9edd1f0ebf5")
-
-        emit(Resource.success(domain.fromReturnedToList(weather)))
-    } catch (e: Exception) {
-        emit(Resource.error("No Result found", null))
-    }
-}
-    
+@GET("weather")
+suspend fun getWeather(
+    @Query("q") q: String,
+    @Query("appid") appid: String
+): Flow<CityWeather>    
 ```
 
 The code snippet above makes the networkcall and returned the result as a flow. This is done in a suspending function as this is not a main safe operation, this method was later called in a coroutines. see below: 
@@ -67,6 +58,9 @@ viewModelScope.launch {
 }
 ```
 
+- **Kotlin Flow:**
+This is one of kotlin features that enables developers to perform long running operations asynchronously and transactionally.
+In this project the result from the api in the networkcall was returned as a flow, this enables us to turn the api into an observable and get live update (if any) from it at any time. 
 
 
 
