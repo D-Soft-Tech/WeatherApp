@@ -111,7 +111,43 @@ object AppModule {
 ```
 
 - **DataBinding:** 
-The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/main/res/layout/listings_rv_item_view.xml).
+The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/main/res/layout/listings_rv_item_view.xml). Also the binding adapters used in this project can be seen below: 
+```
+@BindingAdapter("loadCityIcon")
+fun loadImageWithCoil(imageView: ImageView, drawable: Int) {
+    imageView.load(drawable) {
+        crossfade(true)
+        crossfade(1000)
+        placeholder(R.drawable.image_load_placeholder)
+    }
+}
+
+@BindingAdapter("getStringWithDegree")
+fun getValueInDegree(tv: TextView, value: Int?) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        tv.text = Html.fromHtml("$value<sup>o</sup>", Html.FROM_HTML_MODE_COMPACT)
+    } else {
+        tv.text = Html.fromHtml("$value<sup>o</sup>")
+    }
+}
+
+@BindingAdapter("getTempInCels")
+fun getTempInCelsius(tv: TextView, value: Double?) {
+    val tempInCelsius = "${(value?.toInt() ?: 0) - 273.0}"
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        tv.text = Html.fromHtml("$tempInCelsius <sup>o</sup>C", Html.FROM_HTML_MODE_COMPACT)
+    } else {
+        tv.text = Html.fromHtml("$tempInCelsius <sup>o</sup>C")
+    }
+}
+```
+
+- **COIL** (Coroutines Image Loader): 
+This, instead of Glide, was used for image loading in this project because it by default performs this operation on the background thread using coroutines
+
+- **Navigation Component** This project uses the a single activity architecture. I also used it to manage the navigation via the navController.
+
+- **DiffUtill** This class was used to handle setting of data to the recyclerview adapter. I used it to remove the stress of calling notifyDataSetChanged(), notifyItemInserted() and the rest. You can view this class [here](app/src/main/java/com/example/ey/ui/recyclerView/recyclerViewDiffUtil.kt).
 
 
 
