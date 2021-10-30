@@ -1,6 +1,5 @@
 package com.example.ey.constant
 
-import android.widget.ProgressBar
 import com.example.ey.R
 
 object AppConstants {

@@ -26,4 +26,5 @@
     <string name="weather">Cities Weather</string>
     <string name="cities_weather">Weather of Top Cities</string>
     <string name="details">Details</string>
+    <string name="error_loading_data">Error, Something went wrong, \n please relaunch the app</string>
 </resources>

@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-    val apiService: ApiService,
-    val domain: DomainClass
+    private val apiService: ApiService,
+    private val domain: DomainClass
 ) {
 
     suspend fun getWeather(cityName: String): Flow<Resource<WeatherDomainModel>> = flow {
-        emit(Resource.error("No Result Found", null))
+        emit(Resource.loading(null))
 
         try {
 

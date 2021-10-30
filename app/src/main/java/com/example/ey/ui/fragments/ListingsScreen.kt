@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import com.example.ey.ui.MainViewModel
 import com.example.ey.ui.recyclerView.RecyclerViewAdapter
 import com.example.ey.ui.recyclerView.hide
 import com.example.ey.ui.recyclerView.show
+import com.example.ey.util.Status
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
@@ -33,7 +35,7 @@ class ListingsScreen : Fragment() {
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var binding: ListingScreenBinding
     private lateinit var progressBar: ProgressBar
-    private lateinit var searchView: SearchView
+    private lateinit var errorTv: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,7 +58,7 @@ class ListingsScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         progressBar = binding.progressBar // Initialize the progress bar
-        progressBar.show() // Show the progress bar
+        errorTv = binding.errorTv
 
         viewModel.hasAllCitiesBeenLoaded.observe(
             viewLifecycleOwner,
@@ -66,10 +68,21 @@ class ListingsScreen : Fragment() {
                         viewLifecycleOwner,
                         { cityWeathers ->
                             tempList.clear()
-                            tempList.addAll(cityWeathers)
-                            permanentList = cityWeathers
 
-                            progressBar.hide() // Hide the progress bar
+                            when (cityWeathers.status) {
+                                Status.LOADING -> {
+                                    progressBar.show()
+                                }
+                                Status.SUCCESS -> {
+                                    progressBar.hide()
+                                    permanentList = cityWeathers.data!!
+                                    tempList.addAll(cityWeathers.data)
+                                }
+                                else -> {
+                                    progressBar.hide()
+                                    errorTv.show()
+                                }
+                            }
 
                             recyclerViewAdapter.setCitiesWeathers(
                                 tempList
@@ -86,6 +99,7 @@ class ListingsScreen : Fragment() {
         }
     }
 
+    // Search functionality 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         requireActivity().menuInflater.inflate(R.menu.menu_item, menu)
