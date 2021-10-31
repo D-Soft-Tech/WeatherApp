@@ -21,11 +21,10 @@ WeatherApp is an application that gets the weather forecast of some top cities. 
 
 # Implementation
 The afforementioned technologies were implemented as follow:
-- 
+
 ## Kotlin:
 This project uses 100% Kotlin as the programming language. This is because Kotlin brings more features to the table. Features like extension functions, null safety and make things achievable with less verbose codes.
 
-- 
 ## Coroutines:
 In this project Kotlin Coroutines was used to perform asynchronous operations like network call
 ```
@@ -61,24 +60,20 @@ viewModelScope.launch {
 }
 ```
 
-- 
 ## Kotlin Flow:
 This is one of kotlin features that enables developers to perform long running operations asynchronously and transactionally.
-In this project the result from the api in the networkcall was returned as a flow in the repository using flow builder. you can view the [api service here](app/src/main/java/com/example/ey/api/repository.kt)
+In this project the result from the api in the networkcall was returned as a flow in the repository using flow builder. you can view the [repository here](app/src/main/java/com/example/ey/api/Repository.kt)
 
-- 
 ## LiveData
 Although, Flow is used in this project, it is converted to a LiveData in the viewmodel and the UI controller is made to observe the LiveData. This is because Live
 Data is lifecycle aware and can detect when the observer is not active while flow will continue to dispatch update even when the observer is not active and this can cause a crash. Also in this project no localDatabase (such as Room database) was used. This is because their is no logical reason to persist a weather information locally for these values are constantly changing hence it only made sense to get the current and the correct information from the remote when needed.
 
-- 
 ## Architecture
 The MVVM architecture is used in this project. Hence we have separation of concerns into the following classes: 
 1. [ApiService](app/src/main/java/com/example/ey/api/ApiService.kt) This specifies functions that connects to the remote server.
 2. [Repository](app/src/main/java/com/example/ey/api/Repository.kt) This is the class that serves has the single source of truth to the ViewModel.
 3. [ViewModel](app/src/main/java/com/example/ey/ui/MainViewModel.kt) This is used to handle the business logic and used to help the UI controller to survive configuration changes with the help of the LiveData.
 
-- 
 ## DaggerHilt
 In this project, dependency injection was achieved with the help of DaggerHilt library. The Retrofit client was provided in a module using DaggerHilt as shown below:
 ```
@@ -117,7 +112,6 @@ object AppModule {
 }
 ```
 
-- 
 ## DataBinding:
 The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/main/res/layout/listings_rv_item_view.xml). Also the binding adapters used in this project can be seen below: 
 ```
@@ -150,11 +144,9 @@ fun getTempInCelsius(tv: TextView, value: Double?) {
 }
 ```
 
-- 
 ## COIL (Coroutines Image Loader): 
 This, instead of Glide, was used for image loading in this project because it by default performs this operation on the background thread using coroutines
 
-- 
 ## Navigation Component 
 This project uses the single activity architecture. I also used it to manage the navigation via the navController.
 
@@ -162,7 +154,6 @@ This project uses the single activity architecture. I also used it to manage the
 | --- | --- |
 | ![listingsPage](https://user-images.githubusercontent.com/64334649/139569382-887c5b7c-edd2-4b14-a079-ff332fecf698.png) | ![detailsPage](https://user-images.githubusercontent.com/64334649/139569385-fbc8fb97-7220-471b-b756-36786c8b0ef4.png) |
 
-- 
 ## DiffUtill 
 This class was used to handle setting of data to the recyclerview adapter. I used it to remove the stress of calling notifyDataSetChanged(), notifyItemInserted() and the rest. You can view this class [here](app/src/main/java/com/example/ey/ui/recyclerView/recyclerViewDiffUtil.kt).
 
