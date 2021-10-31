@@ -21,9 +21,12 @@ WeatherApp is an application that gets the weather forecast of some top cities. 
 
 # Implementation
 The afforementioned technologies were implemented as follow:
-- **Kotlin:** 
+- 
+## Kotlin:
 This project uses 100% Kotlin as the programming language. This is because Kotlin brings more features to the table. Features like extension functions, null safety and make things achievable with less verbose codes.
-- **Coroutines:**
+
+- 
+## Coroutines:
 In this project Kotlin Coroutines was used to perform asynchronous operations like network call
 ```
 @GET("weather")
@@ -58,21 +61,25 @@ viewModelScope.launch {
 }
 ```
 
-- **Kotlin Flow:**
+- 
+## Kotlin Flow:
 This is one of kotlin features that enables developers to perform long running operations asynchronously and transactionally.
-In this project the result from the api in the networkcall was returned as a flow, this enables us to turn the api into an observable and get live update (if any) from it at any time. you can view the [api service here](app/src/main/java/com/example/ey/api/ApiService.kt)
+In this project the result from the api in the networkcall was returned as a flow in the repository using flow builder. you can view the [api service here](app/src/main/java/com/example/ey/api/repository.kt)
 
-- **LiveData** 
+- 
+## LiveData
 Although, Flow is used in this project, it is converted to a LiveData in the viewmodel and the UI controller is made to observe the LiveData. This is because Live
 Data is lifecycle aware and can detect when the observer is not active while flow will continue to dispatch update even when the observer is not active and this can cause a crash. Also in this project no localDatabase (such as Room database) was used. This is because their is no logical reason to persist a weather information locally for these values are constantly changing hence it only made sense to get the current and the correct information from the remote when needed.
 
-- **Architecture**
+- 
+## Architecture
 The MVVM architecture is used in this project. Hence we have separation of concerns into the following classes: 
 1. [ApiService](app/src/main/java/com/example/ey/api/ApiService.kt) This specifies functions that connects to the remote server.
 2. [Repository](app/src/main/java/com/example/ey/api/Repository.kt) This is the class that serves has the single source of truth to the ViewModel.
 3. [ViewModel](app/src/main/java/com/example/ey/ui/MainViewModel.kt) This is used to handle the business logic and used to help the UI controller to survive configuration changes with the help of the LiveData.
 
-- **DaggerHilt** 
+- 
+## DaggerHilt
 In this project, dependency injection was achieved with the help of DaggerHilt library. The Retrofit client was provided in a module using DaggerHilt as shown below:
 ```
 @Module
@@ -110,7 +117,8 @@ object AppModule {
 }
 ```
 
-- **DataBinding:** 
+- 
+## DataBinding:
 The databinding library was used in this project as it helps to further separate concerns by handling the business of binding the view to the data source right in the [xml layout](app/src/main/res/layout/listings_rv_item_view.xml). Also the binding adapters used in this project can be seen below: 
 ```
 @BindingAdapter("loadCityIcon")
@@ -142,12 +150,21 @@ fun getTempInCelsius(tv: TextView, value: Double?) {
 }
 ```
 
-- **COIL** (Coroutines Image Loader): 
+- 
+## COIL (Coroutines Image Loader): 
 This, instead of Glide, was used for image loading in this project because it by default performs this operation on the background thread using coroutines
 
-- **Navigation Component** This project uses the a single activity architecture. I also used it to manage the navigation via the navController.
+- 
+## Navigation Component 
+This project uses the single activity architecture. I also used it to manage the navigation via the navController.
 
-- **DiffUtill** This class was used to handle setting of data to the recyclerview adapter. I used it to remove the stress of calling notifyDataSetChanged(), notifyItemInserted() and the rest. You can view this class [here](app/src/main/java/com/example/ey/ui/recyclerView/recyclerViewDiffUtil.kt).
+| Peru Selected | We got navigated to the details Page showing the breakdown of Peru's weather |
+| --- | --- |
+| ![listingsPage](https://user-images.githubusercontent.com/64334649/139569382-887c5b7c-edd2-4b14-a079-ff332fecf698.png) | ![detailsPage](https://user-images.githubusercontent.com/64334649/139569385-fbc8fb97-7220-471b-b756-36786c8b0ef4.png) |
+
+- 
+## DiffUtill 
+This class was used to handle setting of data to the recyclerview adapter. I used it to remove the stress of calling notifyDataSetChanged(), notifyItemInserted() and the rest. You can view this class [here](app/src/main/java/com/example/ey/ui/recyclerView/recyclerViewDiffUtil.kt).
 
 # Features
 Other features add to this project was the ability to search and filter the adapter at the OnTextChanged of the search view. [Veiw code here](app/src/main/java/com/example/ey/ui/fragments/ListingsScreen.kt)
@@ -157,18 +174,11 @@ Other features add to this project was the ability to search and filter the adap
 | ![Screenshot_20211031-045716](https://user-images.githubusercontent.com/64334649/139569155-0d13bcf6-9c2a-4ee0-b7b7-a5b6d713eca5.png) | ![b](https://user-images.githubusercontent.com/64334649/139569103-dc7ba980-a4dc-46b8-864e-94fbfc605112.png) | ![be](https://user-images.githubusercontent.com/64334649/139569108-1f76b585-f055-4888-a6ad-c6d95425f14f.png) |
 
 
-# ScreenShots
-### Splash Screen
+# Other ScreenShots
 
-![Screen Shot 2021-10-31 at 06 00 28](https://user-images.githubusercontent.com/64334649/139568676-ee63c820-bd1d-40ae-ad49-1e54131aff40.png)
+| Splash Screen | Place holder while the endpoint is being called |
+| --- | --- |
+| ![Screen Shot 2021-10-31 at 06 00 28](https://user-images.githubusercontent.com/64334649/139568676-ee63c820-bd1d-40ae-ad49-1e54131aff40.png) | ![loading](https://user-images.githubusercontent.com/64334649/139568489-8261a7c6-a400-4336-b038-601b00a8f18c.png) |
 
-### Place holder while the endpoint is being called
-
-![loading](https://user-images.githubusercontent.com/64334649/139568489-8261a7c6-a400-4336-b038-601b00a8f18c.png)
-
-### List Page
-
-![listingsPage](https://user-images.githubusercontent.com/64334649/139568695-2645bb24-110d-4996-a908-aadde1899769.png)
-)
 
 
