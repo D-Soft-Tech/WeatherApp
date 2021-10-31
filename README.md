@@ -154,6 +154,16 @@ Other features add to this project was the ability to search and filter the adap
 
 # ScreenShots
 - Splash Screen
+
+![Screen Shot 2021-10-31 at 06 00 28](https://user-images.githubusercontent.com/64334649/139568676-ee63c820-bd1d-40ae-ad49-1e54131aff40.png
+
+- Place holder while the endpoint is being called
+
 ![loading](https://user-images.githubusercontent.com/64334649/139568489-8261a7c6-a400-4336-b038-601b00a8f18c.png)
+
+- List Page
+
+![listingsPage](https://user-images.githubusercontent.com/64334649/139568695-2645bb24-110d-4996-a908-aadde1899769.png)
+)
 
 
