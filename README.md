@@ -152,6 +152,9 @@ This, instead of Glide, was used for image loading in this project because it by
 # Features
 Other features add to this project was the ability to search and filter the adapter at the OnTextChanged of the search view. [Veiw code here](app/src/main/java/com/example/ey/ui/fragments/ListingsScreen.kt)
 
+| OnClicking the Search veiw | Adapter filtered  using the search query | Adapter Filtered Using the search query |
+| --- | --- | --- |
+
 # ScreenShots
 ### Splash Screen
 
