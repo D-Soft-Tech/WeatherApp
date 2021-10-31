@@ -154,6 +154,8 @@ Other features add to this project was the ability to search and filter the adap
 
 | OnClicking the Search veiw | Adapter filtered  using the search query | Adapter Filtered Using the search query |
 | --- | --- | --- |
+| ![Screenshot_20211031-045716](https://user-images.githubusercontent.com/64334649/139569155-0d13bcf6-9c2a-4ee0-b7b7-a5b6d713eca5.png) | ![b](https://user-images.githubusercontent.com/64334649/139569103-dc7ba980-a4dc-46b8-864e-94fbfc605112.png) | ![be](https://user-images.githubusercontent.com/64334649/139569108-1f76b585-f055-4888-a6ad-c6d95425f14f.png) |
+
 
 # ScreenShots
 ### Splash Screen
